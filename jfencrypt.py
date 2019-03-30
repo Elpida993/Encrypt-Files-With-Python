@@ -26,7 +26,7 @@ def encrypt(key, filename):
 				elif len(chunk) % 16 != 0:
 					chunk += ' ' * (16 - (len(chunk) % 16))
 
-				outfile.write(encryptor.enrypt(chunk))
+				outfile.write(encryptor.encrypt(chunk))
 
 def decrypt(key, filename):
 	chunksize = 256*4096
@@ -56,12 +56,12 @@ def Main():
 	choice = raw_input('Encrypt Or Decrypt?:')
 
 	if choice == 'E':
-		filename = raw_input('FileName:')
+		filename = raw_input('Filename:')
 		password = raw_input('Password:')
 		encrypt(getKey(password), filename)
 		print('Encrypted')
 	elif choice == 'D':
-		filename = raw_input('FileName:')
+		filename = raw_input('Filename:')
 		password = raw_input('Password:')
 		decrypt(getKey(password), filename)
 		print('Decrypted')
